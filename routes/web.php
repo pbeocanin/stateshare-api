@@ -12,6 +12,8 @@ $router->post('/user', 'UsersController@register');
 $router->group(['middleware' => 'jwt.auth'],
     function() use ($router) {
         $router->get('/user/{id}', 'UsersController@getInfo');
+        $router->patch('/user/{id}', 'UsersController@changePassword');
+        $router->get('/followers', 'UsersController@getFollowers');
 
     }
 );
