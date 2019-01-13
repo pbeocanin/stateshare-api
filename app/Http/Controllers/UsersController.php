@@ -35,6 +35,11 @@ class UsersController
             return response('okay', 200);
         }
         return response('User exists', 400);
-
     }
+
+    public function getFollowers(Request $request){
+        $id = $request->auth['id'];
+        $followers = User::find($id)->load('followers');
+        return response($followers, 200);
+    }x
 }
