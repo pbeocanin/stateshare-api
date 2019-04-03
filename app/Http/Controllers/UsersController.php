@@ -41,5 +41,5 @@ class UsersController
         $id = $request->auth['id'];
         $followers = User::find($id)->load('followers');
         return response($followers, 200);
-    }x
+    }
 }
